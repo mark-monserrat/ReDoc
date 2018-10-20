@@ -22,6 +22,8 @@ export interface RedocProps {
 export class Redoc extends React.Component<RedocProps> {
   static propTypes = {
     store: PropTypes.instanceOf(AppStore).isRequired,
+    hasApiInfo: PropTypes.boolean,
+    hasSideNav: PropTypes.boolean,
   };
 
   componentDidMount() {
@@ -37,6 +39,8 @@ export class Redoc extends React.Component<RedocProps> {
       store: { spec, menu, options, search, marker },
     } = this.props;
     const store = this.props.store;
+    const hasApiInfo = this.props.hasApiInfo;
+    const hasSideNav = this.props.hasSideNav;
     return (
       <ThemeProvider theme={options.theme}>
         <StoreProvider value={this.props.store}>
@@ -53,10 +57,14 @@ export class Redoc extends React.Component<RedocProps> {
                   />
                 )) ||
                   null}
-                <SideMenu menu={menu} />
+                {
+                  hasSideNav ? <SideMenu menu={menu} /> : ''
+                }
               </StickyResponsiveSidebar>
               <ApiContentWrap className="api-content">
-                <ApiInfo store={store} />
+                {
+                  hasApiInfo ? <ApiInfo store={store} /> : ''
+                }
                 <ContentItems items={menu.items as any} />
               </ApiContentWrap>
               <BackgroundStub />

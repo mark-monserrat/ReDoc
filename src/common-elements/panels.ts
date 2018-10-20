@@ -4,7 +4,7 @@ import styled, { media, withProps } from '../styled-components';
 export const MiddlePanel = styled.div`
   width: calc(100% - ${props => props.theme.rightPanel.width});
   padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
-
+  display: none;
   ${media.lessThan('medium', true)`
     width: 100%;
     padding: ${props =>
@@ -17,7 +17,7 @@ export const Section = withProps<{ underlined?: boolean }>(
     [SECTION_ATTR]: props => props.id,
   } as any),
 )`
-  padding: ${props => props.theme.spacing.sectionVertical}px 0;
+  padding: ${props => props.theme.spacing.sectionVertical}px 0 0 0;
 
   ${media.lessThan('medium', true)`
     padding: 0;

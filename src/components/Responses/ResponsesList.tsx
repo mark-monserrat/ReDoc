@@ -11,6 +11,10 @@ const ResponsesHeader = styled.h3`
   font-weight: normal;
 `;
 
+const ResponseContainer = styled.div`
+ padding-bottom: 40px;
+`;
+
 export interface ResponseListProps {
   responses: ResponseModel[];
 }
@@ -24,12 +28,12 @@ export class ResponsesList extends React.PureComponent<ResponseListProps> {
     }
 
     return (
-      <div>
+      <ResponseContainer>
         <ResponsesHeader> Responses </ResponsesHeader>
         {responses.map(response => {
           return <ResponseView key={response.code} response={response} />;
         })}
-      </div>
+      </ResponseContainer>
     );
   }
 }

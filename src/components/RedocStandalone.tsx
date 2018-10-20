@@ -10,6 +10,8 @@ import { StoreBuilder } from './StoreBuilder';
 export interface RedocStandaloneProps {
   spec?: object;
   specUrl?: string;
+  hasApiInfo?: boolean;
+  hasSideNav?: boolean;
   options?: RedocRawOptions;
   onLoaded?: (e?: Error) => any;
 }
@@ -35,6 +37,8 @@ export class RedocStandalone extends React.PureComponent<RedocStandaloneProps> {
     },
     options: PropTypes.any,
     onLoaded: PropTypes.any,
+    hasApiInfo: PropTypes.boolean,
+    hasSideNav: PropTypes.boolean,
   };
 
   render() {
@@ -48,7 +52,7 @@ export class RedocStandalone extends React.PureComponent<RedocStandaloneProps> {
         <StoreBuilder spec={spec} specUrl={specUrl} options={options} onLoaded={onLoaded}>
           {({ loading, store }) =>
             !loading ? (
-              <Redoc store={store!} />
+              <Redoc store={store!} hasApiInfo={hasApiInfo} hasSideNav={hasSideNav} />
             ) : hideLoading ? null : (
               <Loading color={normalizedOpts.theme.colors.primary.main} />
             )
