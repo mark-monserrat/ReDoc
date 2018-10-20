@@ -24,7 +24,7 @@ export type TagsInfoMap = Dict<TagInfo>;
 
 export interface TagGroup {
   name: string;
-  tags: string[];
+  tags: TemplateStringsArray;
 }
 
 export const GROUP_DEPTH = 0;

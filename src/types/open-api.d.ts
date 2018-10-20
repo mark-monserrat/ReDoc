@@ -137,7 +137,7 @@ export interface OpenAPISchema {
   uniqueItems?: boolean;
   maxProperties?: number;
   minProperties?: number;
-  enum?: any[];
+  enum?: any[] | TemplateStringsArray;
   example?: any;
 }
 

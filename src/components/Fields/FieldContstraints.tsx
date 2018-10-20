@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ConstraintItem } from '../../common-elements/fields';
 
 export interface ConstraintsViewProps {
-  constraints: string[];
+  constraints: any[];
 }
 
 export class ConstraintsView extends React.PureComponent<ConstraintsViewProps> {

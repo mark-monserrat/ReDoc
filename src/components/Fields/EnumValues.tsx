@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ExampleValue, FieldLabel } from '../../common-elements/fields';
 
 export interface EnumValuesProps {
-  values: string[];
+  values: TemplateStringsArray | any;
   type: string;
 }
 

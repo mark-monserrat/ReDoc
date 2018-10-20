@@ -17,13 +17,15 @@ import { StoreProvider } from '../StoreBuilder';
 
 export interface RedocProps {
   store: AppStore;
+  hasApiInfo?: boolean | null | undefined;
+  hasSideNav?: boolean | null | undefined;
 }
 
 export class Redoc extends React.Component<RedocProps> {
   static propTypes = {
     store: PropTypes.instanceOf(AppStore).isRequired,
-    hasApiInfo: PropTypes.boolean,
-    hasSideNav: PropTypes.boolean,
+    hasApiInfo: PropTypes.bool,
+    hasSideNav: PropTypes.bool,
   };
 
   componentDidMount() {

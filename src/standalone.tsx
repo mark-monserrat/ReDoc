@@ -36,6 +36,8 @@ function parseOptionsFromElement(element: Element) {
 export function init(
   specOrSpecUrl: string | any,
   options: any = {},
+  hasApiInfo: boolean | null | undefined,
+  hasSideNav: boolean | null | undefined,
   element: Element | null = querySelector('redoc'),
   callback?: (e?: Error) => void,
 ) {
@@ -52,12 +54,17 @@ export function init(
     spec = specOrSpecUrl;
   }
 
+  hasApiInfo = true;
+  hasSideNav = true;
+
   render(
     React.createElement(
       RedocStandalone,
       {
         spec,
         onLoaded: callback,
+        hasApiInfo,
+        hasSideNav,
         specUrl,
         options: { ...options, ...parseOptionsFromElement(element) },
       },
@@ -93,7 +100,7 @@ function autoInit() {
   }
   const specUrl = element.getAttribute('spec-url');
   if (specUrl) {
-    init(specUrl, {}, element);
+    init(specUrl, {}, true, true, element);
   }
 }
 

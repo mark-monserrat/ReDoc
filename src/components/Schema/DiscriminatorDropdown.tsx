@@ -7,9 +7,9 @@ import { SchemaModel } from '../../services/models';
 @observer
 export class DiscriminatorDropdown extends React.Component<{
   parent: SchemaModel;
-  enumValues: string[];
+  enumValues: TemplateStringsArray | string[];
 }> {
-  sortOptions(options: DropdownOption[], enumValues: string[]): void {
+  sortOptions(options: DropdownOption[], enumValues: TemplateStringsArray | string[]): void {
     if (enumValues.length === 0) {
       return;
     }

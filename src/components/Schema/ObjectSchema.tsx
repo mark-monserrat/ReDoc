@@ -34,11 +34,11 @@ export class ObjectSchema extends React.Component<ObjectSchemaProps> {
 
     const filteredFields = needFilter
       ? fields.filter(item => {
-          return (
-            (this.props.skipReadOnly && !item.schema.readOnly) ||
-            (this.props.skipWriteOnly && !item.schema.writeOnly)
-          );
-        })
+        return (
+          (this.props.skipReadOnly && !item.schema.readOnly) ||
+          (this.props.skipWriteOnly && !item.schema.writeOnly)
+        );
+      })
       : fields;
 
     return (
@@ -57,7 +57,7 @@ export class ObjectSchema extends React.Component<ObjectSchemaProps> {
                     (() => (
                       <DiscriminatorDropdown
                         parent={this.parentSchema}
-                        enumValues={field.schema.enum}
+                        enumValues={field.schema.enum ? field.schema.enum : []}
                       />
                     ))) ||
                   undefined
