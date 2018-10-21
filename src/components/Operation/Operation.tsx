@@ -31,6 +31,26 @@ const Description = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.unit * 6}px;
 `;
 
+const ApiInfo = styled.div`
+  padding: 10px;
+`;
+
+const ApiMethod = styled.div`
+  padding: 10px;
+  text-transform: uppercase;
+`;
+
+const Snippet = styled.div`
+  padding: 10px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+  font-weight: 500;
+  font-size: 15px;
+`;
+
 export interface OperationProps {
   operation: OperationType;
 }
@@ -40,7 +60,7 @@ export class Operation extends React.Component<OperationProps> {
   render() {
     const { operation } = this.props;
 
-    const { name: summary, description, deprecated, externalDocs } = operation;
+    const { name: summary, method, path, description, responseDescription, deprecated, externalDocs } = operation;
     const hasDescription = !!(description || externalDocs);
 
     return (
@@ -52,6 +72,7 @@ export class Operation extends React.Component<OperationProps> {
                 <ShareLink to={operation.id} />
                 {summary} {deprecated && <Badge type="warning"> Deprecated </Badge>}
               </H2>
+              <ApiInfo><ApiMethod>{method}</ApiMethod> {path}</ApiInfo>
               {options.pathInMiddlePanel && <Endpoint operation={operation} inverted={true} />}
               {hasDescription && (
                 <Description>
@@ -62,10 +83,10 @@ export class Operation extends React.Component<OperationProps> {
               <Extensions extensions={operation.extensions} />
               <SecurityRequirements securities={operation.security} />
               <Parameters parameters={operation.parameters} body={operation.requestBody} />
-              <ResponsesList responses={operation.responses} />
+              <ResponsesList responses={operation.responses} description={responseDescription ? responseDescription : ''} />
             </MiddlePanel>
             <DarkRightPanel>
-              {!options.pathInMiddlePanel && <Endpoint operation={operation} />}
+              <Snippet>CODE SNIPPET</Snippet>
               <RequestSamples operation={operation} />
               <ResponseSamples operation={operation} />
             </DarkRightPanel>

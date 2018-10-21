@@ -42,6 +42,15 @@ export const RequiredLabel = styled(FieldLabel.withComponent('div'))`
   font-weight: normal;
   margin-left: 20px;
   line-height: 1;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-weight: 600;
+  border: solid 1px;
+  padding: 4px 8px;
+  border-radius: 30px;
+  background: #E09C64;
+  color: #ffffff;
+  position: absolute;
 `;
 
 export const RecursiveLabel = styled(FieldLabel)`
@@ -64,14 +73,13 @@ export const PatternLabel = styled(FieldLabel)`
 `;
 
 export const ExampleValue = styled(FieldLabel)`
-  border-radius: 2px;
-  ${({ theme }) => `
-    background-color: ${transparentize(0.95, theme.colors.text.primary)};
-    color: ${transparentize(0.1, theme.colors.text.primary)};
-
-    margin: ${theme.spacing.unit}px;
-    padding: 0 ${theme.spacing.unit}px;
-    border: 1px solid ${transparentize(0.9, theme.colors.text.primary)};
+  border-radius: 20px;
+  ${() => `
+    background-color: #eef4fb;
+    color: #0E5FC2;
+    margin: 5px;
+    padding: 1px 5px;
+    border: 1px solid #5e95d8;
 }`};
   & + & {
     margin-left: 0;

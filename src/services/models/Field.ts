@@ -12,7 +12,7 @@ import { SchemaModel } from './Schema';
  */
 export class FieldModel {
   @observable
-  expanded: boolean = false;
+  expanded: boolean = true;
 
   schema: SchemaModel;
   name: string;

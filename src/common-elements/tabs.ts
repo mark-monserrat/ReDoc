@@ -7,34 +7,53 @@ export const Tabs = styled(ReactTabs)`
   > ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    margin: 0 -5px;
-
+    margin: 5px;
+    text-align: center;
     > li {
       padding: 5px 10px;
       display: inline-block;
 
-      background-color: rgba(0, 0, 0, 0.2);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      background-color: rgba(255,255,255,0.1);
       cursor: pointer;
       text-align: center;
       outline: none;
       color: #ccc;
       margin: 5px;
-      border: 1px solid #181f22;
-      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
       min-width: 60px;
       font-size: 0.9em;
       font-weight: bold;
 
+      &:first-child {
+        margin: 5px 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-child {
+        margin: 5px 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 0;
+      }
+
+      &:not(:first-child):not(:last-child){
+        margin: 5px 0;
+        border-radius: 0;
+        border-left: 0;
+      }
+
       &.react-tabs__tab--selected {
         color: ${props => props.theme.colors.text.primary};
-        background: #e2e2e2;
+        background: rgba(255,255,255, 0.6);
       }
 
       &:only-child {
         flex: none;
         min-width: 100px;
+        margin: 5px;
+        border-radius: 4px;
       }
 
       &.tab-success {
@@ -55,7 +74,8 @@ export const Tabs = styled(ReactTabs)`
     }
   }
   > .react-tabs__tab-panel {
-    background: #171e21;
+    background: rgba(0,0,0,0);
+    border-radius: 4px;
     & > div,
     & > pre {
       padding: 20px;

@@ -43,7 +43,7 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
       if (!oneOf || !oneOf.length) {
         throw new Error(
           `Looks like you are using discriminator wrong: you don't have any definition inherited from the ${
-            schema.title
+          schema.title
           }`,
         );
       }
@@ -78,7 +78,7 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
       externalDocs: schema.externalDocs,
       deprecated: false,
       toggle: () => null,
-      expanded: false,
+      expanded: true,
     } as any) as FieldModel; // cast needed for hot-loader to not fail
 
     return (

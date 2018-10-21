@@ -19,9 +19,8 @@ export class PayloadSamples extends React.Component<PayloadSamplesProps> {
     if (mimeContent === undefined) {
       return null;
     }
-
     return (
-      <MediaTypesSwitch content={mimeContent} renderDropdown={this.renderDropdown}>
+      <MediaTypesSwitch content={mimeContent} hideDropdown={true} renderDropdown={this.renderDropdown}>
         {mediaType => <MediaTypeSamples key="samples" mediaType={mediaType} />}
       </MediaTypesSwitch>
     );

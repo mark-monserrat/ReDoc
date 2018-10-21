@@ -62,10 +62,7 @@ export const StyledMarkdownBlock = withProps<{ compact?: boolean; inline?: boole
   code {
     color: ${({ theme }) => theme.typography.code.color};
     background-color: ${({ theme }) => theme.typography.code.backgroundColor};
-
     font-family: ${props => props.theme.typography.code.fontFamily};
-    border-radius: 2px;
-    border: 1px solid rgba(38, 50, 56, 0.1);
     padding: 0.1em 0.25em 0.2em;
     font-size: ${props => props.theme.typography.code.fontSize};
 
@@ -75,17 +72,17 @@ export const StyledMarkdownBlock = withProps<{ compact?: boolean; inline?: boole
   pre {
     font-family: ${props => props.theme.typography.code.fontFamily};
     white-space:${({ theme }) => (theme.typography.code.wrap ? 'pre-wrap' : 'pre')};
-    background-color: #263238;
+    background-color: #E6E6E6;
+    border-radius: 4px;
     color: white;
     padding: 12px 14px 15px 14px;
     overflow-x: auto;
     line-height: normal;
-    border-radius: 0px
-    border: 1px solid rgba(38, 50, 56, 0.1);
+    border: 1px solid #DBDBDB;
 
     code {
       background-color: transparent;
-      color: white;
+      color: ${({ theme }) => theme.typography.code.color};
       padding: 0;
 
       &:before,
@@ -96,11 +93,13 @@ export const StyledMarkdownBlock = withProps<{ compact?: boolean; inline?: boole
   }
 
   blockquote {
-    margin: 0;
-    margin-bottom: 1em;
-    padding: 0 15px;
-    color: #777;
-    border-left: 4px solid #ddd;
+    margin: 2em 0 1em 0;
+    padding: 0 15px 15px 15px;
+    color: #0E5FC2;
+    border-radius: 4px;
+    border: 1px solid #0E5FC2;
+    background-color: #dbe5f1;
+    font-size: 13px;
   }
 
   img {

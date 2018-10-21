@@ -67,6 +67,7 @@ export interface OpenAPIOperation {
   tags?: string[];
   summary?: string;
   description?: string;
+  responseDescription?: string;
   externalDocs?: OpenAPIExternalDocumentation;
   operationId?: string;
   parameters?: Array<Referenced<OpenAPIParameter>>;

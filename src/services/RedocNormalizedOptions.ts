@@ -119,6 +119,7 @@ export class RedocNormalizedOptions {
   hideDownloadButton: boolean;
   disableSearch: boolean;
   onlyRequiredInSamples: boolean;
+  hideDropdown: boolean;
   showExtensions: boolean | string[];
 
   /* tslint:disable-next-line */

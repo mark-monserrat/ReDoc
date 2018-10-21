@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ResponseModel } from '../../services/models';
 import styled from '../../styled-components';
 import { ResponseView } from './Response';
+import { Markdown } from '../Markdown/Markdown';
 
 const ResponsesHeader = styled.h3`
   font-size: 18px;
@@ -17,11 +18,12 @@ const ResponseContainer = styled.div`
 
 export interface ResponseListProps {
   responses: ResponseModel[];
+  description: string;
 }
 
 export class ResponsesList extends React.PureComponent<ResponseListProps> {
   render() {
-    const { responses } = this.props;
+    const { responses, description } = this.props;
 
     if (!responses || responses.length === 0) {
       return null;
@@ -30,6 +32,7 @@ export class ResponsesList extends React.PureComponent<ResponseListProps> {
     return (
       <ResponseContainer>
         <ResponsesHeader> Responses </ResponsesHeader>
+        <Markdown source={description} />
         {responses.map(response => {
           return <ResponseView key={response.code} response={response} />;
         })}

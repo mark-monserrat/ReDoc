@@ -11,6 +11,7 @@ export interface MediaTypeChildProps {
 
 export interface MediaTypesSwitchProps {
   content?: MediaContentModel;
+  hideDropdown?: boolean;
   renderDropdown: (props: DropdownProps) => JSX.Element;
   children: (activeMime: MediaTypeModel) => JSX.Element;
 }
@@ -24,7 +25,7 @@ export class MediaTypesSwitch extends React.Component<MediaTypesSwitchProps> {
   };
 
   render() {
-    const { content } = this.props;
+    const { content, hideDropdown } = this.props;
     if (!content || !content.mediaTypes || !content.mediaTypes.length) {
       return null;
     }
@@ -37,13 +38,19 @@ export class MediaTypesSwitch extends React.Component<MediaTypesSwitchProps> {
       };
     });
 
+    let dropdown = <></>;
+
+    if (!hideDropdown) {
+      dropdown = this.props.renderDropdown({
+        value: options[activeMimeIdx],
+        options,
+        onChange: this.switchMedia,
+      });
+    }
+
     return (
       <>
-        {this.props.renderDropdown({
-          value: options[activeMimeIdx],
-          options,
-          onChange: this.switchMedia,
-        })}
+        {dropdown}
         {this.props.children(content.active)}
       </>
     );

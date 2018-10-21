@@ -39,6 +39,8 @@ export class OperationModel implements IMenuItem {
   absoluteIdx?: number;
   name: string;
   description?: string;
+  responseDescription?: string;
+  method?: string;
   type = 'operation' as 'operation';
 
   parent?: GroupModel;
@@ -52,7 +54,7 @@ export class OperationModel implements IMenuItem {
   @observable
   active: boolean = false;
   @observable
-  expanded: boolean = false;
+  expanded: boolean = true;
   //#endregion
 
   pointer: string;
