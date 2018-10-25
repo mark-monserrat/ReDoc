@@ -58,8 +58,8 @@ export class Endpoint extends React.Component<EndpointProps, EndpointState> {
               />
             </EndpointInfo>
             <ServersOverlay expanded={expanded}>
-              {operation.servers.map(server => (
-                <ServerItem key={server.url}>
+              {operation.servers.map((server, index) => (
+                <ServerItem key={`server-item-${index}-${server.url}`}>
                   <div>{server.description}</div>
                   <SelectOnClick>
                     <ServerUrl>

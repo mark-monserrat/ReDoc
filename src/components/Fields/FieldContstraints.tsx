@@ -13,8 +13,8 @@ export class ConstraintsView extends React.PureComponent<ConstraintsViewProps> {
     return (
       <span>
         {' '}
-        {this.props.constraints.map(constraint => (
-          <ConstraintItem key={constraint}> {constraint} </ConstraintItem>
+        {this.props.constraints.map((constraint, index) => (
+          <ConstraintItem key={`constraint-item-${index}-${constraint}`}> {constraint} </ConstraintItem>
         ))}
       </span>
     );

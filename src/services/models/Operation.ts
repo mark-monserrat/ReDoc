@@ -40,7 +40,6 @@ export class OperationModel implements IMenuItem {
   name: string;
   description?: string;
   responseDescription?: string;
-  method?: string;
   type = 'operation' as 'operation';
 
   parent?: GroupModel;

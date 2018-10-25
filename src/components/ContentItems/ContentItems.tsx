@@ -18,7 +18,7 @@ export class ContentItems extends React.Component<{
     if (items.length === 0) {
       return null;
     }
-    return items.map(item => <ContentItem item={item} key={item.id} />);
+    return items.map((item, index) => <ContentItem item={item} key={`content-item-${index}-${item.id}`} />);
   }
 }
 

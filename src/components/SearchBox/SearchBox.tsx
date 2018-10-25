@@ -151,7 +151,7 @@ export class SearchBox extends React.PureComponent<SearchBoxProps, SearchBoxStat
                   })}
                   onActivate={this.props.onActivate}
                   withoutChildren={true}
-                  key={res.item.id}
+                  key={`menu-item-${idx}-${res.item.id}`}
                   data-role="search:result"
                 />
               ))}

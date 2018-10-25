@@ -118,15 +118,14 @@ export const StyledMarkdownBlock = withProps<{ compact?: boolean; inline?: boole
   }
 
   table {
-    display: block;
     width: 100%;
     overflow: auto;
     word-break: normal;
     word-break: keep-all;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin: 1.5em auto;
+    max-width: 800px;
   }
 
   table tr {
@@ -145,7 +144,7 @@ export const StyledMarkdownBlock = withProps<{ compact?: boolean; inline?: boole
   }
 
   table th {
-    text-align: left;
+    text-align: center;
     font-weight: bold;
   }
 

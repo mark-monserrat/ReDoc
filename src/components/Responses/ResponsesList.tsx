@@ -33,8 +33,8 @@ export class ResponsesList extends React.PureComponent<ResponseListProps> {
       <ResponseContainer>
         <ResponsesHeader> Responses </ResponsesHeader>
         <Markdown source={description} />
-        {responses.map(response => {
-          return <ResponseView key={response.code} response={response} />;
+        {responses.map((response, index) => {
+          return <ResponseView key={`response-view-${index}-${response.code}`} response={response} />;
         })}
       </ResponseContainer>
     );

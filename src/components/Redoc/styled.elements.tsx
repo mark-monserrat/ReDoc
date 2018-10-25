@@ -29,7 +29,7 @@ export const ApiContentWrap = styled.div`
   z-index: 1;
   position: relative;
   overflow-y: auto;
-  width: calc(100% - ${props => props.theme.menu.width});
+  width: calc(100%);
   ${media.lessThan('small', true)`
     width: 100%;
   `};

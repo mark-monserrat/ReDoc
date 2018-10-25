@@ -27,8 +27,8 @@ export class Extensions extends React.PureComponent<ExtensionsProps> {
         {options => (
           <>
             {options.showExtensions &&
-              Object.keys(this.props.extensions).map(key => (
-                <Extension key={key}>
+              Object.keys(this.props.extensions).map((key, index) => (
+                <Extension key={`extension-${index}-${key}`}>
                   <ExtensionLable>{key}</ExtensionLable>:{' '}
                   <code>{JSON.stringify(this.props.extensions[key])}</code>
                 </Extension>

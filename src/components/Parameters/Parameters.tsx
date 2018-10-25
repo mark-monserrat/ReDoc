@@ -47,8 +47,8 @@ export class Parameters extends React.PureComponent<ParametersProps> {
 
     return (
       <div>
-        {paramsPlaces.map(place => (
-          <ParametersGroup key={place} place={place} parameters={paramsMap[place]} />
+        {paramsPlaces.map((place, index) => (
+          <ParametersGroup key={`parameter-group-${index}-${place}`} place={place} parameters={paramsMap[place]} />
         ))}
         {bodyContent && <BodyContent content={bodyContent} />}
       </div>

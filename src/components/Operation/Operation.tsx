@@ -31,15 +31,6 @@ const Description = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.unit * 6}px;
 `;
 
-const ApiInfo = styled.div`
-  padding: 10px;
-`;
-
-const ApiMethod = styled.div`
-  padding: 10px;
-  text-transform: uppercase;
-`;
-
 const Snippet = styled.div`
   padding: 10px;
   text-transform: uppercase;
@@ -60,7 +51,7 @@ export class Operation extends React.Component<OperationProps> {
   render() {
     const { operation } = this.props;
 
-    const { name: summary, method, path, description, responseDescription, deprecated, externalDocs } = operation;
+    const { name: summary, description, responseDescription, deprecated, externalDocs } = operation;
     const hasDescription = !!(description || externalDocs);
 
     return (
@@ -72,7 +63,6 @@ export class Operation extends React.Component<OperationProps> {
                 <ShareLink to={operation.id} />
                 {summary} {deprecated && <Badge type="warning"> Deprecated </Badge>}
               </H2>
-              <ApiInfo><ApiMethod>{method}</ApiMethod> {path}</ApiInfo>
               {options.pathInMiddlePanel && <Endpoint operation={operation} inverted={true} />}
               {hasDescription && (
                 <Description>

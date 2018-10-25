@@ -29,8 +29,8 @@ export class RequestSamples extends React.Component<RequestSamplesProps> {
           <Tabs defaultIndex={0}>
             <TabList>
               {hasBodySample && <Tab key="payload"> Payload </Tab>}
-              {samples.map(sample => (
-                <Tab key={sample.lang}>
+              {samples.map((sample, index) => (
+                <Tab key={`tab-${index}-${sample.lang}`}>
                   {sample.label !== undefined ? sample.label : sample.lang}
                 </Tab>
               ))}
@@ -42,8 +42,8 @@ export class RequestSamples extends React.Component<RequestSamplesProps> {
                 </div>
               </TabPanel>
             )}
-            {samples.map(sample => (
-              <TabPanel key={sample.lang}>
+            {samples.map((sample, index) => (
+              <TabPanel key={`tab-${index}-${sample.lang}`}>
                 <SourceCodeWithCopy lang={sample.lang} source={sample.source} />
               </TabPanel>
             ))}
