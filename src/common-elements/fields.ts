@@ -53,6 +53,23 @@ export const RequiredLabel = styled(FieldLabel.withComponent('div'))`
   position: absolute;
 `;
 
+export const ConditionalLabel = styled(FieldLabel.withComponent('div'))`
+  color: ${props => props.theme.schema.requireLabelColor};
+  font-size: ${props => props.theme.schema.labelsTextSize};
+  font-weight: normal;
+  margin-left: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-weight: 600;
+  border: solid 1px;
+  padding: 4px 8px;
+  border-radius: 30px;
+  background: rgb(176, 196, 50);
+  color: #ffffff;
+  position: absolute;
+`;
+
 export const RecursiveLabel = styled(FieldLabel)`
   color: ${({ theme }) => theme.colors.warning.main};
   font-size: 13px;

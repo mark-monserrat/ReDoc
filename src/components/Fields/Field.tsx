@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
 
-import { ClickablePropertyNameCell, RequiredLabel } from '../../common-elements/fields';
+import { ClickablePropertyNameCell, RequiredLabel, ConditionalLabel } from '../../common-elements/fields';
 import { FieldDetails } from './FieldDetails';
 
 import {
@@ -34,7 +34,7 @@ export class Field extends React.Component<FieldProps> {
   };
   render() {
     const { className, field, isLast } = this.props;
-    const { name, expanded, deprecated, required, kind } = field;
+    const { name, expanded, deprecated, required, conditioal, kind } = field;
     const withSubSchema = !field.schema.isPrimitive && !field.schema.isCircular;
 
     const paramName = withSubSchema ? (
@@ -47,15 +47,17 @@ export class Field extends React.Component<FieldProps> {
         <PropertyBullet />
         {name}
         <ShelfIcon direction={expanded ? 'down' : 'right'} />
-        {required && <RequiredLabel> required </RequiredLabel>}
+        {required && <RequiredLabel> mandatory </RequiredLabel>}
+        {conditioal && <ConditionalLabel> conditional </ConditionalLabel>}
       </ClickablePropertyNameCell>
     ) : (
-      <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
-        <PropertyBullet />
-        {name}
-        {required && <RequiredLabel> required </RequiredLabel>}
-      </PropertyNameCell>
-    );
+        <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
+          <PropertyBullet />
+          {name}
+          {required && <RequiredLabel> mandatory </RequiredLabel>}
+          {conditioal && <ConditionalLabel> conditional </ConditionalLabel>}
+        </PropertyNameCell>
+      );
 
     return (
       <>

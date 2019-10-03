@@ -17,6 +17,7 @@ export class FieldModel {
   schema: SchemaModel;
   name: string;
   required: boolean;
+  conditional?: boolean;
   description: string;
   example?: string;
   deprecated: boolean;
