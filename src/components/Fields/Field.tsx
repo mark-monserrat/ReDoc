@@ -34,7 +34,7 @@ export class Field extends React.Component<FieldProps> {
   };
   render() {
     const { className, field, isLast } = this.props;
-    const { name, expanded, deprecated, required, conditioal, kind } = field;
+    const { name, expanded, deprecated, required, conditional, kind } = field;
     const withSubSchema = !field.schema.isPrimitive && !field.schema.isCircular;
 
     const paramName = withSubSchema ? (
@@ -48,14 +48,14 @@ export class Field extends React.Component<FieldProps> {
         {name}
         <ShelfIcon direction={expanded ? 'down' : 'right'} />
         {required && <RequiredLabel> mandatory </RequiredLabel>}
-        {conditioal && <ConditionalLabel> conditional </ConditionalLabel>}
+        {conditional && <ConditionalLabel> conditional </ConditionalLabel>}
       </ClickablePropertyNameCell>
     ) : (
         <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
           <PropertyBullet />
           {name}
           {required && <RequiredLabel> mandatory </RequiredLabel>}
-          {conditioal && <ConditionalLabel> conditional </ConditionalLabel>}
+          {conditional && <ConditionalLabel> conditional </ConditionalLabel>}
         </PropertyNameCell>
       );
 
